@@ -41,11 +41,21 @@ Open `QuickCommerce_Dashboard.pbix` in Power BI Desktop, or see the PDF export i
 ![Annual burn](dashboard/page5.png)
 
 ## SQL
-`sql/quickcommerce_analysis.sql` holds the PostgreSQL queries:
+Two files in `sql/`:
+
+**`quickcommerce_analysis.sql`** (Q0 to Q12, the main analysis):
 - Q0: row counts, null checks and a P&L-to-EBITDA tie-out
 - Q1-Q3: AOV, EBITDA per order, FY26 per-order P&L waterfall and the gap vs Blinkit
-- Q4-Q9: delivery radius bands, category mix, discount intensity (LAG), first-party share, store quartiles (NTILE), city ranking (RANK)
+- Q4-Q9: delivery radius bands, category mix, discount intensity (`LAG`), first-party share, store quartiles (`NTILE`), city ranking (`RANK`)
 - Q10-Q12: store density, benchmark reconciliation, and a what-if on annual burn if the discount gap is half closed
+
+**`quickcommerce_extended.sql`** (E1 to E9, extra analysis):
+- E1: contribution after rider per order with year-on-year change (`LAG`)
+- E2-E3: data-quality checks: missing dark-store costs, and orders whose product category disagrees with `dim_product` (87%)
+- E4-E6: Zepto and Instamart's discount and rider-cost gap to Blinkit, and impact sizing in Rs crore using `JOIN` to the benchmark table
+- E7-E9: rider-cost penalty beyond 3 km, city league table (`RANK`), seasonality with a rolling 3-month average and a January dip check
+
+The extended queries use only columns that exist in the workbook, and were run on PostgreSQL 16 against all 450,000 orders. They reproduce the workbook's figures: Zepto's gap to Blinkit of Rs 16.24 in discount and Rs 6.74 in rider cost per order, the Rs 735 Cr and Rs 399 Cr uplift, the Rs 14.91 rider-cost penalty beyond 3 km, 198,607 missing dark-store costs, and a 29% January dip.
 
 ## Excel
 `excel/README.md` documents the workbook behind this project: 26 tabs, 6 PivotTables (company and year, unit economics, category, city, top stores), a data-quality audit, 9 business problems with evidence, and recommendations with impact sizing (about Rs 735 Cr a year for Zepto). The 95 MB file itself is too large for a normal upload.
