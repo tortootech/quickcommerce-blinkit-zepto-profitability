@@ -22,15 +22,23 @@ The orders are synthetic. They were generated to reflect each company's publicly
 | Orders delivered within 2 km (FY26) | Blinkit 84% vs Zepto 19% |
 | Value of closing half the discount and rider-cost gap | about Rs 735 Cr a year for Zepto |
 
-## Dashboard
-`QuickCommerce_Dashboard.pbix` has 5 pages:
-1. EBITDA trend by company and fiscal year
-2. FY26 per-order P&L (gross margin, discount, rider cost, allocated overhead)
-3. Delivery radius: rider cost by distance band, share of orders under 2 km
-4. Discount as % of AOV, first-party share, EBITDA by category
-5. Annual burn: reported losses vs modelled
+## Dashboard (Power BI, 5 pages)
+Open `QuickCommerce_Dashboard.pbix` in Power BI Desktop, or see the PDF export in `dashboard/QuickCommerce_Dashboard.pdf`. Use the fiscal-year slicer to switch years.
 
-Open it in Power BI Desktop. Use the fiscal-year slicer to switch years.
+**1. EBITDA per order by company and year.** Blinkit improves from -Rs 35 (FY24) to -Rs 3.02 (FY26), while Zepto and Instamart stay deep in the red.
+![EBITDA trend](dashboard/page1.png)
+
+**2. FY26 per-order P&L.** Gross margin, discount, rider cost and allocated overhead by company.
+![FY26 per-order P&L](dashboard/page2.png)
+
+**3. Delivery radius.** Rider cost climbs with distance, and 84% of Blinkit's FY26 orders ship under 2 km vs 25% for Instamart and 19% for Zepto.
+![Delivery radius](dashboard/page3.png)
+
+**4. Discount, first-party share and category EBITDA.** Zepto discounts 8.5% of order value vs Blinkit's 5.5%.
+![Discount and category](dashboard/page4.png)
+
+**5. Annual burn.** Reported FY26 losses vs the modelled numbers. The page notes that the data is synthetic and calibrated to published headline numbers, with allocated corporate overhead as the balancing item.
+![Annual burn](dashboard/page5.png)
 
 ## SQL
 `sql/quickcommerce_analysis.sql` holds the PostgreSQL queries:
