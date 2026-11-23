@@ -32,6 +32,13 @@ The orders are synthetic. They were generated to reflect each company's publicly
 
 Open it in Power BI Desktop. Use the fiscal-year slicer to switch years.
 
+## SQL
+`sql/quickcommerce_analysis.sql` holds the PostgreSQL queries:
+- Q0: row counts, null checks and a P&L-to-EBITDA tie-out
+- Q1-Q3: AOV, EBITDA per order, FY26 per-order P&L waterfall and the gap vs Blinkit
+- Q4-Q9: delivery radius bands, category mix, discount intensity (LAG), first-party share, store quartiles (NTILE), city ranking (RANK)
+- Q10-Q12: store density, benchmark reconciliation, and a what-if on annual burn if the discount gap is half closed
+
 ## Tools
 Excel (data prep, findings), PostgreSQL (per-order unit economics queries), Power BI (dashboard, DAX).
 
