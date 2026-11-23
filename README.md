@@ -47,8 +47,14 @@ Open `QuickCommerce_Dashboard.pbix` in Power BI Desktop, or see the PDF export i
 - Q4-Q9: delivery radius bands, category mix, discount intensity (LAG), first-party share, store quartiles (NTILE), city ranking (RANK)
 - Q10-Q12: store density, benchmark reconciliation, and a what-if on annual burn if the discount gap is half closed
 
+## Excel
+`excel/README.md` documents the workbook behind this project: 26 tabs, 6 PivotTables (company and year, unit economics, category, city, top stores), a data-quality audit, 9 business problems with evidence, and recommendations with impact sizing (about Rs 735 Cr a year for Zepto). The 95 MB file itself is too large for a normal upload.
+
+## DAX
+`dax/measures.md` lists the Power BI measures with explanations: `Orders Under 2km %` (`CALCULATE` with `DIVIDE`), `Discount % of AOV`, `Avg First Party Share`, and a `Radius Band` calculated column.
+
 ## Tools
-Excel (data prep, findings), PostgreSQL (per-order unit economics queries), Power BI (dashboard, DAX).
+Excel (PivotTables, data-quality checks, findings), PostgreSQL (per-order unit economics queries), Power BI (dashboard, DAX).
 
 ## Author
 Vartika Yadav | [LinkedIn](https://www.linkedin.com/in/vartika-yadav-b39a23314) | [Portfolio](https://tortootech.github.io/vartika/)
